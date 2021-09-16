@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2021_09_16_101142) do
   end
 
   create_table "user_events", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.string "user_id", null: false
     t.bigint "event_id", null: false
     t.integer "rsvp"
     t.datetime "created_at", precision: 6, null: false
@@ -41,9 +41,9 @@ ActiveRecord::Schema.define(version: 2021_09_16_101142) do
     t.string "phone"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
   add_foreign_key "user_events", "events"
-  add_foreign_key "user_events", "users"
+  add_foreign_key "user_events", "users", primary_key: "username"
 end
