@@ -3,6 +3,8 @@ class UserEvent < ApplicationRecord
     foreign_key: :user_id,
     primary_key: :username
 
+  validates :user_id, uniqueness: { scope: :event_id }  #Add unique index
+
   belongs_to :event
 
   validates :rsvp,

@@ -3,5 +3,5 @@ class Event < ApplicationRecord
    :starttime,
    :endtime
 
-   has_many :user_events
+   has_many :user_events, dependent: :destroy
 end
