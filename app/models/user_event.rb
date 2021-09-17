@@ -1,5 +1,7 @@
 class UserEvent < ApplicationRecord
-  belongs_to :user, foreign_key: :user_id, primary_key: :username
+  belongs_to :user,
+    foreign_key: :user_id,
+    primary_key: :username
 
   belongs_to :event
 

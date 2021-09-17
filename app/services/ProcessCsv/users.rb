@@ -13,12 +13,11 @@ module ProcessCsv
     def call
       users = []
       CSV.foreach(Rails.root.join(file_path), headers: true).with_index do |row, index|
-        if index+1 > 1 && (index+1)%insert_limit == 0
+        if users.length == @insert_limit
           import_users users
           users=[]
-        else
-          users.push(row.to_h)
         end
+        users.push(row.to_h)
       end
       import_users users if users.any?
     end
