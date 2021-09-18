@@ -16,8 +16,6 @@ class ApplicationController < ActionController::Base
   def get_date_from_params key
     DateTime.new(params["#{key}(1i)"].to_i,
     params["#{key}(2i)"].to_i,
-    params["#{key}(3i)"].to_i,
-    params["#{key}(4i)"].to_i,
-    params["#{key}(5i)"].to_i).utc
+    params["#{key}(3i)"].to_i).utc
   end
 end

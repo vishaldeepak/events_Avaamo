@@ -1,0 +1,12 @@
+<% current_time = @starttime %>
+<div class="standard-margin-top">
+  <ol class="list-group">
+    <% while(current_time < @endtime) %>
+      <%date_interval = DateInterval.new(start_date: current_time, end_date: current_time + 2.hours)%>
+      <% unless date_interval.overlaps_with_multiple_datimes(@event_dates) %>
+        <li class="list-group-item">Available on <%= date_interval.start_date%> -- <%= date_interval.end_date%> </li>
+      <% end %>
+      <% current_time = current_time + 2.hours %>
+    <% end %>
+  </ul>
+</div>

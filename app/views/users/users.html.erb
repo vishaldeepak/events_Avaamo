@@ -1,9 +1,19 @@
+<% if @invalid_user %>
+  <div class="alert alert-danger" role="alert">
+    Username is invalid
+  </div>
+<% end %>
+
 <%= form_with url: "/users", method: :get do |form| %>
   <div class="col-md-3">
     <%= form.label :username, class: 'form-label' %>
-    <%= form.text_field :username, class: 'form-control' %>
+    <%= form.text_field :username, value: params[:username], class: 'form-control' %>
   </div>
 
   <%= render "./date_form", form: form %>
 <%= form.submit "Search", class: 'btn btn-primary standard-margin-top' %>
+<% end %>
+
+<% if @user.present? %>
+      <%= render "slot_availability" %>
 <% end %>

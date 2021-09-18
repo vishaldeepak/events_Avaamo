@@ -3,7 +3,7 @@ class User < ApplicationRecord
     presence: true,
     uniqueness: true
 
-  has_many :user_events
+  has_many :user_events, primary_key: :username
 
   has_many :events, through: :user_events
 
