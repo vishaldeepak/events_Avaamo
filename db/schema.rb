@@ -27,18 +27,6 @@ ActiveRecord::Schema.define(version: 2021_09_18_131353) do
     t.index ["starttime"], name: "index_events_on_starttime"
   end
 
-  create_table "new_row_event", id: false, force: :cascade do |t|
-  end
-
-  create_table "new_row_event1", id: false, force: :cascade do |t|
-    t.string "title"
-  end
-
-  create_table "new_row_event2", id: false, force: :cascade do |t|
-    t.string "title"
-    t.datetime "endtime"
-  end
-
   create_table "user_events", force: :cascade do |t|
     t.string "user_id", null: false
     t.bigint "event_id", null: false
