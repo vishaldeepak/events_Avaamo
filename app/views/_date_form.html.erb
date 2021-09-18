@@ -1,0 +1,19 @@
+<div class="standard-margin-top">
+  <h4>Select a date range to view events(UTC)</h4>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <%= form.label :start, "Start Time", class: 'form-label' %>
+    <div class="input-group">
+      <%= form.datetime_select :starttime, {default: @starttime},  class: 'form-select' %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <%= form.label :start, "End Time", class: 'form-label'  %>
+    <div class="input-group">
+      <%= form.datetime_select :endtime, {default: @endtime},  class: 'form-select' %>
+    </div>
+  </div>
+</div>
+

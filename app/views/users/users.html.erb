@@ -1,0 +1,9 @@
+<%= form_with url: "/users", method: :get do |form| %>
+  <div class="col-md-3">
+    <%= form.label :username, class: 'form-label' %>
+    <%= form.text_field :username, class: 'form-control' %>
+  </div>
+
+  <%= render "./date_form", form: form %>
+<%= form.submit "Search", class: 'btn btn-primary standard-margin-top' %>
+<% end %>

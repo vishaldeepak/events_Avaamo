@@ -1,17 +1,17 @@
-<h4>Select a date range to view events</h4>
+<%= form_with url: "/events", method: :get do |form| %>
+  <%= render "./date_form", form: form %>
+<%= form.submit "Search", class: 'btn btn-primary standard-margin-top' %>
+<% end %>
 
-
-<div class="row">
-  <div class="col-md-6">
-    <div class="input-group">
-      <input class="form-control" type='datetime-local' value="starttime">
-    </div>
-  </div>
-  <div class="col-md-6">
-    <div class="input-group">
-      <input class="form-control" type='datetime-local' value="endtime">
-    </div>
+<div class="standard-margin-top">
+  <h4>Events on given date(<%= @events.count %>)</h4>
+  <div class="container">
+    <ul class="list-group">
+      <% @events.each do |event| %>
+      <div>
+        <li><%= event.title %></li>
+      </div>
+      <% end%>
+    </ul>
   </div>
 </div>
-
-
